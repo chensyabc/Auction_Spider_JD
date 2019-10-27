@@ -15,9 +15,9 @@ class MySQL:
 
     def get_courts(self, is_filter_count=True):
         if is_filter_count:
-            sql_select = "select Id, CourtCityId, CourtSubId, CourtName, AuctionCount from Courts WHERE AuctionCount > 0"
+            sql_select = "select Id, CourtId, CourtName, AuctionCount from Courts WHERE AuctionCount > 0"
         else:
-            sql_select = "select Id, CourtCityId, CourtSubId, CourtName, AuctionCount from Courts"
+            sql_select = "select Id, CourtId, CourtName, AuctionCount from Courts"
         return self.select(sql_select)
 
     def get_categories(self):

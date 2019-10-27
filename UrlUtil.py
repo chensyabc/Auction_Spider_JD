@@ -1,7 +1,9 @@
+# coding: utf-8
 import urllib.request
 import ssl
 import urllib.request
 import random
+import json
 
 
 def get_html(url):
@@ -34,6 +36,13 @@ def get_html_with_proxy(url, is_log_url=True):
                 print("All fails after try %d times to access url %s, all failed!", max_try_time, url)
                 break
     return html
+
+
+def get_json(url):
+    req = urllib.request.Request(url)
+    html = urllib.request.urlopen(req).read()
+    return_json = json.loads(html.decode('utf-8'))
+    return return_json
 
 
 proxies = ["115.46.117.189:8123", "61.135.217.7:80", "118.114.77.47:8080", "114.67.149.209:808",
